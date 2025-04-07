@@ -24,6 +24,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-// className='border-2 border-[#E7FE29]'

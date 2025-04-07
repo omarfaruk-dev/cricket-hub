@@ -13,7 +13,7 @@ const Navbar = () => {
                     <li><a href="#">Schedules</a></li>
                     <button className='btn py-4 px-5 rounded-xl bg-white'><span>0</span> Coin <img src="images/coin.svg" alt="" /></button>
                 </ul>
-                <span class="md:hidden"><HiMenuAlt3 size={25}/></span>
+                <span className="md:hidden"><HiMenuAlt3 size={25}/></span>
             </nav>
         </div>
     );
