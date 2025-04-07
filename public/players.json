@@ -6,8 +6,7 @@
         "role": "Batsman",
         "batting_style": "Right-Hand-Bat",
         "price": "1300000",
-        "image_url": "https://i.ibb.co.com/RTWbC8cm/1-Babar-Azam.jpg",
-        "button_text": "Choose Player"
+        "image_url": "https://i.ibb.co.com/RTWbC8cm/1-Babar-Azam.jpg"
     },
     {
         "id": 2,

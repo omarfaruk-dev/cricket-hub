@@ -8,7 +8,7 @@ const Player = ({ player, handleChoosePlayer }) => {
     const [playerBtn, setPlayerBtn] = useState(false);
     const handleBtnStatus = () => {
         setPlayerBtn(true);
-        handleChoosePlayer();
+        handleChoosePlayer(player);
     }
 
     return (
