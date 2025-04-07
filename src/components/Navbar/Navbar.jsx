@@ -5,7 +5,7 @@ const Navbar = () => {
         <div>
             <nav className=' mt-6 flex justify-between items-center'>
                 <img src="images/logo.svg" alt="" />
-                <ul className='flex justify-between items-center gap-10'>
+                <ul className='flex justify-between items-center gap-10 font-normal'>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Fixture</a></li>
                     <li><a href="#">Teams</a></li>
