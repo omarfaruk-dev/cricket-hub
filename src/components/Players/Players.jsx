@@ -1,8 +1,8 @@
-import React, { use } from 'react';
+// import React, { use } from 'react';
 import Player from '../Player/Player';
 
-const Players = ({ resolvePlayers, handleChoosePlayer }) => {
-    const players = use(resolvePlayers);
+const Players = ({ players, handleChoosePlayer }) => {
+    // const players = use(resolvePlayers);
 
     return (
         <div>

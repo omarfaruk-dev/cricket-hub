@@ -13,7 +13,7 @@ const Hero = ({handleHeroBtn}) => {
                         <h1 className='text-4xl font-bold leading-10 text-white '>Assemble Your Ultimate Dream 11 Cricket Team</h1>
                         <h3 className='text-2xl text-[#ffffff70] font-medium'>Beyond Boundaries Beyond Limits</h3>
 
-                        <button onClick={handleHeroBtn} className='m-2 border-2 border-[#E7FE29] rounded-xl'><a className='inline-block m-2 py-3.5 px-5  bg-[#E7FE29] font-bold rounded-xl' href="#">Claim Free Credit</a></button>
+                        <button onClick={handleHeroBtn} className='m-2 border-2 border-[#E7FE29] rounded-2xl'><a className='inline-block m-2 py-3.5 px-5  bg-[#E7FE29] font-bold rounded-xl' href="#">Claim Free Credit</a></button>
                     </div>
                 </div>
 

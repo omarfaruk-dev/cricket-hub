@@ -11,6 +11,7 @@ const DisplayCart = ({ displayCart, handleDeleteBtn }) => {
                     displayCart.map((cart) => <Cart handleDeleteBtn={handleDeleteBtn} key={cart.id} cart={cart}></Cart>)
                 }
             </div>
+            {/* <button className='m-2 border-2 border-[#E7FE29] rounded-2xl mb-20'><a className='inline-block m-2 py-3.5 px-5  bg-[#E7FE29] font-bold rounded-xl' href="#">Add More Player</a></button> */}
         </div>
     );
 };
@@ -27,6 +28,7 @@ const Cart = ({ cart, handleDeleteBtn }) => {
                 </div>
             </div>
             <button onClick={()=>handleDeleteBtn(cart.id)}><RiDeleteBin6Line size={30} color='red' /></button>
+
 
         </div>
     )
