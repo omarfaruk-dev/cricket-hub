@@ -1,10 +1,10 @@
 
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import './App.css'
 import Hero from './components/Hero/Hero'
 import Navbar from './components/Navbar/Navbar'
 import Players from './components/Players/Players'
-import { DiVim } from 'react-icons/di'
+import ToggleBtn from './components/ToggleBtn/ToggleBtn'
 
 const promisePlayers = async () => {
   const res = await fetch("players.json");
@@ -13,10 +13,17 @@ const promisePlayers = async () => {
 
 function App() {
   const resolvePlayers = promisePlayers();
+
+  const [coinCount, setCoinCount] = useState(0);
+  const handleHeroBtn = () => {
+    setCoinCount(previousCount => previousCount + 100000);
+  };
+
   return (
     <>
-      <Navbar></Navbar>
-      <Hero></Hero>
+      <Navbar coinCount={coinCount}></Navbar>
+      <Hero handleHeroBtn={handleHeroBtn}></Hero>
+      <ToggleBtn></ToggleBtn>
       <Suspense fallback={
         <div className='text-center'>
           <span className="loading loading-infinity loading-xl text-info"></span>
