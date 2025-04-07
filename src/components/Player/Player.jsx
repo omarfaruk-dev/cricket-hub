@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { FaFlag } from "react-icons/fa6";
 
-const Player = ({ player }) => {
+const Player = ({ player, handleChoosePlayer }) => {
     const { name, country, role, batting_style, image_url, price } = player;
+
+    const [playerBtn, setPlayerBtn] = useState(false);
+    const handleBtnStatus = () => {
+        setPlayerBtn(true);
+        handleChoosePlayer();
+    }
+
     return (
         <div className='border-2 border-gray-100 p-5 rounded-xl space-y-3'>
             <img className='rounded-xl' src={image_url} alt={name} />
@@ -18,7 +25,8 @@ const Player = ({ player }) => {
             <h3 className='font-semibold'>{batting_style}</h3>
             <div className='flex justify-between items-center'>
                 <h3 className='font-semibold'>Price: ${price}</h3>
-                <button className='btn bg-white hover:bg-[#E7FE29]'>Choose Player</button>
+                <button onClick={handleBtnStatus} className={playerBtn ? 'btn-disabled bg-[#E7FE29] px-3 py-2 border-gray-100 rounded-lg' : 'btn bg-white hover:bg-[#E7FE29]'}>Choose Player</button>
+                {/* <button onClick={()=>{ handleChoosePlayer(); handleBtnStatus}} className={playerBtn ? 'btn-disabled' : 'btn bg-white hover:bg-[#E7FE29]'}>Choose Player</button> */}
             </div>
 
         </div>

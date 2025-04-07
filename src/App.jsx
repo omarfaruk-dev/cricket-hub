@@ -15,6 +15,12 @@ function App() {
   const resolvePlayers = promisePlayers();
 
   const [coinCount, setCoinCount] = useState(0);
+  const [playerCount, setPlayerCount]= useState(0);
+
+  const handleChoosePlayer= ()=>{
+    setPlayerCount(previous => previous +1);
+  } 
+
   const handleHeroBtn = () => {
     setCoinCount(previousCount => previousCount + 100000);
   };
@@ -23,14 +29,14 @@ function App() {
     <>
       <Navbar coinCount={coinCount}></Navbar>
       <Hero handleHeroBtn={handleHeroBtn}></Hero>
-      <ToggleBtn></ToggleBtn>
+      <ToggleBtn playerCount={playerCount}></ToggleBtn>
       <Suspense fallback={
         <div className='text-center'>
           <span className="loading loading-infinity loading-xl text-info"></span>
           <span className="loading loading-infinity loading-xl text-success"></span>
           <span className="loading loading-infinity loading-xl text-secondary"></span>
         </div>}>
-        <Players resolvePlayers={resolvePlayers}></Players>
+        <Players resolvePlayers={resolvePlayers} handleChoosePlayer={handleChoosePlayer}></Players>
       </Suspense>
 
     </>
