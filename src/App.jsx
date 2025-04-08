@@ -22,9 +22,14 @@ function App() {
   }, []);
 
   const handleChoosePlayer = (player) => {
-    setPlayerCount(previous => previous + 1);
-    const newCart = [...displayCart, player];
-    setDisplayCart(newCart);
+
+    if (player.price >= coinCount) {
+      alert('insufficient balance')
+    } else {
+      setPlayerCount(previous => previous + 1);
+      const newCart = [...displayCart, player];
+      setDisplayCart(newCart);
+    }
   };
 
   const handleHeroBtn = () => {
@@ -43,9 +48,9 @@ function App() {
       <ToggleBtn playerCount={playerCount} activeTab={activeTab} setActiveTab={setActiveTab} />
       {/* <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn} />
        */}
-       {activeTab === "selected" && (
-      <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn} />
-    )}
+      {activeTab === "selected" && (
+        <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn} />
+      )}
 
       {activeTab === "available" && (
         <Players players={players} handleChoosePlayer={handleChoosePlayer} />)}
