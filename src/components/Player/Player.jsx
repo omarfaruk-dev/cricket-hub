@@ -26,7 +26,6 @@ const Player = ({ player, handleChoosePlayer }) => {
             <div className='flex justify-between items-center'>
                 <h3 className='font-semibold'>Price: ${price}</h3>
                 <button onClick={handleBtnStatus} disabled={playerBtn? true: false } className='btn bg-white hover:bg-[#E7FE29]'>{playerBtn?'Selected':'Choose Player'}</button>
-                {/* <button onClick={()=>{ handleChoosePlayer(); handleBtnStatus}} className={playerBtn ? 'btn-disabled' : 'btn bg-white hover:bg-[#E7FE29]'}>Choose Player</button> */}
             </div>
 
         </div>

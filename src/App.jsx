@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Players from './components/Players/Players';
 import ToggleBtn from './components/ToggleBtn/ToggleBtn';
 import DisplayCart from './components/DisplayCart/DisplayCart';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -24,7 +25,7 @@ function App() {
   const handleChoosePlayer = (player) => {
 
     if (player.price >= coinCount) {
-      alert('insufficient balance')
+      toast.warn('Insufficient Balance!', {position:'top-center', autoClose: 2000, theme:"colored"})
     } else {
       setPlayerCount(previous => previous + 1);
       const newCart = [...displayCart, player];
@@ -34,6 +35,7 @@ function App() {
 
   const handleHeroBtn = () => {
     setCoinCount(prev => prev + 100000);
+    toast.success("Wow! You got 100000 coins",{position:"top-center",autoClose:2000, theme:"colored"})
   };
 
   const handleDeleteBtn = (id) => {
@@ -46,14 +48,14 @@ function App() {
       <Navbar coinCount={coinCount} />
       <Hero handleHeroBtn={handleHeroBtn} />
       <ToggleBtn playerCount={playerCount} activeTab={activeTab} setActiveTab={setActiveTab} />
-      {/* <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn} />
-       */}
+      
       {activeTab === "selected" && (
         <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn} />
       )}
 
       {activeTab === "available" && (
         <Players players={players} handleChoosePlayer={handleChoosePlayer} />)}
+         <ToastContainer />
     </>
   );
 }
