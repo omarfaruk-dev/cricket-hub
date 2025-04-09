@@ -3,10 +3,10 @@
 @plugin "daisyui";
 
 
-#root{
+/* #root{
     max-width: 1320px;
     margin: 0 auto;
-}
+} */
 
 .sora-font {
     font-family: "Sora", sans-serif;

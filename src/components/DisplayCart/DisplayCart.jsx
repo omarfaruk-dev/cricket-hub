@@ -5,7 +5,7 @@ const DisplayCart = ({ displayCart, handleDeleteBtn, totalPriceCount, handlePric
 
 
     return (
-        <div>
+        <div className='container mx-auto'>
             {/* <h3>{displayCart.length}</h3> */}
             <div className='space-y-5 mb-10'>
                 {
@@ -13,7 +13,7 @@ const DisplayCart = ({ displayCart, handleDeleteBtn, totalPriceCount, handlePric
                 }
             </div>
             {/* <button className='m-2 border-2 border-[#E7FE29] rounded-2xl mb-20'><a className='inline-block m-2 py-3.5 px-5  bg-[#E7FE29] font-bold rounded-xl' href="#">Add More Player</a></button> */}
-            <div className='flex items-center justify-center  gap-5 mb-20'>
+            <div className='flex flex-col md:flex-row items-center justify-center px-5  gap-5 mb-60'>
                 <h2 className='text-2xl '>Total Price: <span className='font-bold'>$ {totalPriceCount}</span></h2>
                 <button className='btn bg-[#E7FE29] rounded-xl px-8 py-5 text-xl'>Checkout To Payment</button>
             </div>
@@ -24,7 +24,7 @@ const DisplayCart = ({ displayCart, handleDeleteBtn, totalPriceCount, handlePric
 const Cart = ({ cart, handleDeleteBtn, handlePriceDec }) => {
 
     return (
-        <div>
+        <div className='container mx-auto px-5'>
             <div className='flex justify-between items-center p-5 border rounded-xl border-gray-200'>
                 <div className='flex gap-6 items-center'>
                     <img className='w-20 h-20 object-cover rounded-lg' src={cart.image_url} />
@@ -35,7 +35,7 @@ const Cart = ({ cart, handleDeleteBtn, handlePriceDec }) => {
 
                 </div>
                 <h2 className='text-xl'>Price: ${cart.price}</h2>
-                <button onClick={() => {handleDeleteBtn(cart.id); handlePriceDec(cart.price)}}><RiDeleteBin6Line className='active:animate-ping' size={30} color='red' /></button>
+                <button onClick={() => { handleDeleteBtn(cart.id); handlePriceDec(cart.price) }}><RiDeleteBin6Line className='active:animate-ping' size={30} color='red' /></button>
             </div>
 
         </div>

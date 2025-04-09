@@ -2,7 +2,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 
 const Navbar = ({ coinCount, totalPriceCount }) => {
     return (
-        <div>
+        <div className="container mx-auto">
             <nav className=' mt-6 flex justify-between items-center px-5'>
                 <img src="images/logo.svg" alt="" />
                 <ul className='hidden md:flex justify-between items-center gap-10 font-normal'>

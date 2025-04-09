@@ -4,9 +4,11 @@ const ToggleBtn = ({ playerCount, activeTab, setActiveTab }) => {
         setActiveTab(tabName);
     };
 
+       
+
     return (
-        <div className='flex justify-between items-center mt-20 mb-5'>
-            <h2 className='text-2xl font-bold'>Available Players</h2>
+        <div className='container mx-auto px-5 flex flex-col md:flex-row justify-between items-center mt-20 mb-10'>
+            <h2 className='text-2xl font-bold'>{activeTab ==='selected'? `Selected Player (${playerCount}/6)`: 'Available Players'}</h2>
             <div className="inline-flex rounded-xl border border-gray-300 overflow-hidden">
 
                 <button

@@ -3,7 +3,7 @@ import React from 'react';
 const Hero = ({handleHeroBtn}) => {
     return (
         <>
-            <div className='bg-black p-15 rounded-xl mt-10'>
+            <div className='container mx-auto bg-black p-15 rounded-xl mt-10'>
                 <div className='relative'>
                     {/* <div className='h-50 w-50 bg-linear-to-r from-cyan-500 to-blue-500'></div> */}
                     {/* <img className='w-200 h-200 absolute -top-80 -right-80 overflow-hidden object-cover blur' src="images/hero-top.png" alt="" />

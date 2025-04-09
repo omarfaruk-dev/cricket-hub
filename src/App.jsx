@@ -6,6 +6,7 @@ import Players from './components/Players/Players';
 import ToggleBtn from './components/ToggleBtn/ToggleBtn';
 import DisplayCart from './components/DisplayCart/DisplayCart';
 import { ToastContainer, toast } from 'react-toastify';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -15,16 +16,6 @@ function App() {
   const [activeTab, setActiveTab] = useState("available");
   const [totalPriceCount, setTotalPriceCount] = useState(0);
 
-  const handleTotalPrice=(price)=>{
-    setTotalPriceCount(totalPriceCount + price) ;
-  }
-  const handlePriceDec=(price)=>{
-    setTotalPriceCount(totalPriceCount - price);
-    console.log(totalPriceCount);
-  }
-
-
-
   useEffect(() => {
     fetch("players.json")
       .then(res => res.json())
@@ -32,30 +23,47 @@ function App() {
       .catch(err => console.error("Failed to load players:", err));
   }, []);
 
- 
+
+  const handleTotalPrice = (price) => {
+    setTotalPriceCount(totalPriceCount + price);
+  }
+  const handlePriceDec = (price) => {
+    setTotalPriceCount(totalPriceCount - price);
+
+  }
+  // const handlePlayerDec = (players) => {
+  //   console.log(players);
+  // }
+
+
+
+
+
+
 
   const handleChoosePlayer = (player) => {
 
-    if (player.price >= coinCount && coinCount <0) {
-      toast.warn('Insufficient Balance!', {position:'top-center', autoClose: 2000, theme:"colored"})
-    } else if(playerCount >=6) {
-      toast.warn('You have reached limit', {position:'top-center', theme:'colored', autoClose: 2000})
+    if (player.price >= coinCount && coinCount < 0) {
+      toast.warn('Insufficient Balance!', { position: 'top-center', autoClose: 2000, theme: "colored" })
+    } else if (playerCount >= 6) {
+      toast.warn('You have reached limit', { position: 'top-center', theme: 'colored', autoClose: 2000 })
     } else {
       setPlayerCount(previous => previous + 1);
       const newCart = [...displayCart, player];
       setDisplayCart(newCart);
-      toast.success('One player added to your cart',{position:'top-center', theme:'colored', autoClose:1500})
+      toast.success('One player added to your cart', { position: 'top-center', theme: 'colored', autoClose: 1500 })
     }
   };
 
   const handleHeroBtn = () => {
     setCoinCount(prev => prev + 10000);
-    toast.success("Wow! You got 100000 coins",{position:"top-center",autoClose:2000, theme:"colored"})
+    toast.success("Wow! You got 100000 coins", { position: "top-center", autoClose: 2000, theme: "colored" })
   };
 
   const handleDeleteBtn = (id) => {
     const remainingCart = displayCart.filter(cart => cart.id !== id);
     setDisplayCart(remainingCart);
+    // handlePlayerDec(players)
   };
 
   return (
@@ -63,21 +71,24 @@ function App() {
       <Navbar coinCount={coinCount} totalPriceCount={totalPriceCount} />
       <Hero handleHeroBtn={handleHeroBtn} />
       <ToggleBtn playerCount={playerCount} activeTab={activeTab} setActiveTab={setActiveTab} />
-      
+
       {activeTab === "selected" && (
-        <DisplayCart 
-        displayCart={displayCart}
-        handleDeleteBtn={handleDeleteBtn} 
-        players={players} 
-        playerCount={playerCount}
-        totalPriceCount={totalPriceCount} 
-        handlePriceDec={handlePriceDec}
+        <DisplayCart
+          displayCart={displayCart}
+          handleDeleteBtn={handleDeleteBtn}
+          players={players}
+          playerCount={playerCount}
+          totalPriceCount={totalPriceCount}
+          handlePriceDec={handlePriceDec}
         />
       )}
 
       {activeTab === "available" && (
         <Players players={players} handleChoosePlayer={handleChoosePlayer} handleTotalPrice={handleTotalPrice} />)}
-         <ToastContainer />
+      <Footer></Footer>
+
+      <ToastContainer />
+
     </>
   );
 }
