@@ -1,6 +1,6 @@
 import { HiMenuAlt3 } from "react-icons/hi";
 
-const Navbar = ({ coinCount }) => {
+const Navbar = ({ coinCount, totalPriceCount }) => {
     return (
         <div>
             <nav className=' mt-6 flex justify-between items-center px-5'>
@@ -10,7 +10,7 @@ const Navbar = ({ coinCount }) => {
                     <li><a href="#">Fixture</a></li>
                     <li><a href="#">Teams</a></li>
                     <li><a href="#">Schedules</a></li>
-                    <button className='btn py-4 px-5 rounded-xl bg-white'>{coinCount} Coin <img src="images/coin.svg" alt="" /></button>
+                    <button className='btn py-4 px-5 rounded-xl bg-white'>{coinCount - totalPriceCount} Coin <img src="images/coin.svg" alt="" /></button>
                 </ul>
                 <span className="md:hidden"><HiMenuAlt3 size={25} /></span>
             </nav>

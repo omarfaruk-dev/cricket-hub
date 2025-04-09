@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { FaFlag } from "react-icons/fa6";
 
-const Player = ({ player, handleChoosePlayer }) => {
+const Player = ({ player, handleChoosePlayer, handleTotalPrice }) => {
     const { name, country, role, batting_style, image_url, price } = player;
 
     const [playerBtn, setPlayerBtn] = useState(false);
     const handleBtnStatus = () => {
         setPlayerBtn(true);
         handleChoosePlayer(player);
+        handleTotalPrice(price);
         
     }
 

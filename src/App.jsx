@@ -13,6 +13,16 @@ function App() {
   const [playerCount, setPlayerCount] = useState(0);
   const [displayCart, setDisplayCart] = useState([]);
   const [activeTab, setActiveTab] = useState("available");
+  const [totalPriceCount, setTotalPriceCount] = useState(0);
+
+  const handleTotalPrice=(price)=>{
+    setTotalPriceCount(totalPriceCount + price) ;
+  }
+  const handlePriceDec=(price)=>{
+    setTotalPriceCount(totalPriceCount - price);
+    console.log(totalPriceCount);
+  }
+
 
 
   useEffect(() => {
@@ -22,22 +32,24 @@ function App() {
       .catch(err => console.error("Failed to load players:", err));
   }, []);
 
+ 
+
   const handleChoosePlayer = (player) => {
 
-    if (player.price >= coinCount) {
+    if (player.price >= coinCount && coinCount <0) {
       toast.warn('Insufficient Balance!', {position:'top-center', autoClose: 2000, theme:"colored"})
-      console.log(player.price);
     } else if(playerCount >=6) {
       toast.warn('You have reached limit', {position:'top-center', theme:'colored', autoClose: 2000})
     } else {
       setPlayerCount(previous => previous + 1);
       const newCart = [...displayCart, player];
       setDisplayCart(newCart);
+      toast.success('One player added to your cart',{position:'top-center', theme:'colored', autoClose:1500})
     }
   };
 
   const handleHeroBtn = () => {
-    setCoinCount(prev => prev + 100000);
+    setCoinCount(prev => prev + 10000);
     toast.success("Wow! You got 100000 coins",{position:"top-center",autoClose:2000, theme:"colored"})
   };
 
@@ -48,16 +60,23 @@ function App() {
 
   return (
     <>
-      <Navbar coinCount={coinCount} />
+      <Navbar coinCount={coinCount} totalPriceCount={totalPriceCount} />
       <Hero handleHeroBtn={handleHeroBtn} />
       <ToggleBtn playerCount={playerCount} activeTab={activeTab} setActiveTab={setActiveTab} />
       
       {activeTab === "selected" && (
-        <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn}/>
+        <DisplayCart 
+        displayCart={displayCart}
+        handleDeleteBtn={handleDeleteBtn} 
+        players={players} 
+        playerCount={playerCount}
+        totalPriceCount={totalPriceCount} 
+        handlePriceDec={handlePriceDec}
+        />
       )}
 
       {activeTab === "available" && (
-        <Players players={players} handleChoosePlayer={handleChoosePlayer} />)}
+        <Players players={players} handleChoosePlayer={handleChoosePlayer} handleTotalPrice={handleTotalPrice} />)}
          <ToastContainer />
     </>
   );
