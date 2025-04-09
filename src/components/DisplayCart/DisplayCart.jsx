@@ -28,8 +28,6 @@ const Cart = ({ cart, handleDeleteBtn }) => {
                 </div>
             </div>
             <button onClick={()=>handleDeleteBtn(cart.id)}><RiDeleteBin6Line size={30} color='red' /></button>
-
-
         </div>
     )
 };

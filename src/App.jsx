@@ -26,6 +26,9 @@ function App() {
 
     if (player.price >= coinCount) {
       toast.warn('Insufficient Balance!', {position:'top-center', autoClose: 2000, theme:"colored"})
+      console.log(player.price);
+    } else if(playerCount >=6) {
+      toast.warn('You have reached limit', {position:'top-center', theme:'colored', autoClose: 2000})
     } else {
       setPlayerCount(previous => previous + 1);
       const newCart = [...displayCart, player];
@@ -50,7 +53,7 @@ function App() {
       <ToggleBtn playerCount={playerCount} activeTab={activeTab} setActiveTab={setActiveTab} />
       
       {activeTab === "selected" && (
-        <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn} />
+        <DisplayCart displayCart={displayCart} handleDeleteBtn={handleDeleteBtn}/>
       )}
 
       {activeTab === "available" && (

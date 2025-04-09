@@ -9,6 +9,7 @@ const Player = ({ player, handleChoosePlayer }) => {
     const handleBtnStatus = () => {
         setPlayerBtn(true);
         handleChoosePlayer(player);
+        
     }
 
     return (

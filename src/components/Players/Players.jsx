@@ -1,8 +1,8 @@
-// import React, { use } from 'react';
+
 import Player from '../Player/Player';
 
 const Players = ({ players, handleChoosePlayer }) => {
-    // const players = use(resolvePlayers);
+
 
     return (
         <div>
