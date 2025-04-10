@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Footer = () => {
+    // email validator 
+    const [email, setEmail] = useState('')
+    const [error, setError] = useState('');
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!email) {
+            setError('Email is required!');
+        } else if (!emailRegex.test(email)) {
+            setError('Please enter a valid email address');
+        } else {
+            setError('');
+            toast.success(`${email} Subscribed successfully`, {theme:'colored', position:'top-center'});
+        }
+    };
+
     return (
         <div>
             <footer className="relative bg-[#0A0B1A] px-5">
@@ -13,17 +33,18 @@ const Footer = () => {
                     </p>
 
                     <form className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                        <input
+                        <input value={email} onChange={(e) => setEmail(e.target.value)}
                             type="email"
                             placeholder="Enter your email"
                             className="px-5 py-3 rounded-xl border border-gray-300 shadow-sm w-full sm:w-96 focus:outline-none focus:ring-2 focus:ring-yellow-200"
                         />
-                        <button
+                        <button onClick={handleSubmit}
                             className="bg-gradient-to-r from-pink-300 to-yellow-300 text-black font-semibold px-6 py-3 rounded-xl shadow-md hover:opacity-90 transition-all"
                         >
                             Subscribe
                         </button>
                     </form>
+                    {error && <p className="text-center text-red-500 mt-2">{error}</p>}
                 </div>
                 <div className="container mx-auto text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-sm">
 
@@ -34,7 +55,7 @@ const Footer = () => {
                             We are a passionate team dedicated to providing the best services to our customers.
                         </p>
                     </div>
- 
+
                     <div className="flex flex-col items-center justify-center">
                         <img src="images/logo-white.svg" alt="Logo" className="h-50 mb-2" />
                     </div>
@@ -63,6 +84,7 @@ const Footer = () => {
                     ©2025 Cricket Buzz All Rights Reserved.
                 </div>
             </footer>
+            <ToastContainer/>
         </div>
     );
 };
