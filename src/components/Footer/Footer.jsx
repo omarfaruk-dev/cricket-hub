@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="relative bg-[#0A0B1A] px-5">
-                <div className="absolute -top-40 container mx-auto bg-gradient-to-r from-[#e0f7ff] via-white to-[#fff3cc] p-20 rounded-3xl shadow-xl relative z-10">
+                <div className="relative -top-40 container mx-auto bg-gradient-to-r from-[#e0f7ff] via-white to-[#fff3cc] p-20 rounded-3xl shadow-xl z-10">
                     <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
                         Subscribe to our <span className="text-black">Newsletter</span>
                     </h2>

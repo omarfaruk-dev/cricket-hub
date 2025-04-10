@@ -15,7 +15,7 @@ const Player = ({ player, handleChoosePlayer, handleTotalPrice }) => {
 
     return (
         <div className='border-2 border-gray-100 p-5 rounded-xl space-y-3'>
-            <img className='rounded-xl' src={image_url} alt={name} />
+            <img className='rounded-xl hover:grayscale-100 transition-all duration-500 ease-in-out hover:scale-105 hover:skew-1' src={image_url} alt={name} />
             <div className='flex gap-4 items-center'>
                 <FaUser size={25} />
                 <h3 className='text-xl font-semibold'> {name}</h3>

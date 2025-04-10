@@ -37,13 +37,27 @@ function App() {
 
 
 
+  // const handleChoosePlayer = (player) => {
+  //   if (parseInt(player.price) <= coinCount) {
+  //     alert('Added')
+  //     setPlayerCount(previous => previous + 1);
+  //     const newCart = [...displayCart, player];
+  //     setDisplayCart(newCart);
+      
+  //     if (displayCart.length < 6) {
+  //       const newCart = [...displayCart, player];
+  //       setDisplayCart(newCart);
+  //       setCoinCount(coinCount - player.price)
 
-
-
+  //     } else {
+  //       alert('Limit Reached')
+  //     }
+  //   } else {
+  //     alert('Not available balance')
+  //   }
 
   const handleChoosePlayer = (player) => {
-
-    if (player.price >= coinCount && coinCount < 0) {
+    if (player.price >= coinCount && coinCount <= 0) {
       toast.warn('Insufficient Balance!', { position: 'top-center', autoClose: 2000, theme: "colored" })
     } else if (playerCount >= 6) {
       toast.warn('You have reached limit', { position: 'top-center', theme: 'colored', autoClose: 2000 })
@@ -56,8 +70,8 @@ function App() {
   };
 
   const handleHeroBtn = () => {
-    setCoinCount(prev => prev + 10000);
-    toast.success("Wow! You got 100000 coins", { position: "top-center", autoClose: 2000, theme: "colored" })
+    setCoinCount(prev => prev + 300000);
+    // toast.success("Wow! You got 100000 coins", { position: "top-center", autoClose: 2000, theme: "colored" })
   };
 
   const handleDeleteBtn = (id) => {
